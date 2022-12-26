@@ -38,15 +38,28 @@ const e1:C3={name:'ju', age:45, married:false};  //Error 잉여속성검사
 
 
 
+
 interface A4 { name: string};
 interface B4 {age:number};
 interface C4 extends A4, B4{};
 const c3 : C4 = { name:'lee', age:24};
 
 
+const list: [number, number] = [1,2];
+
+const tuple : [number, number] = list;
 
 
+type Tuple = [string, Date, string];
+type TupleEl = Tuple[1];
 
 
+interface Person{
+    first:string;
+    last:number;
+}
+
+const p : Person = {first:'Jane', last:'Jacobs'};
+const first: Person['last'] = p['last'];
 
 

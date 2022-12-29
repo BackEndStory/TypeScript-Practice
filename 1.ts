@@ -1,6 +1,6 @@
 const a : number = 5;
 const b : string ="hello";
-const c : boolean = false;
+//const c : boolean = false;
 const a1 : 5 = 5;
 const ab : any = 24; 
 const ar1 : string[] = ['asdf'];

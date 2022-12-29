@@ -1,5 +1,5 @@
-function add3(x:number | string , y: number ): number | string
-{ return x+y};      //Error
+// function add3(x:number | string , y: number ): number | string
+// { return x+y};      //Error
 const result : number | string = add(1,2);
 
 
@@ -34,7 +34,7 @@ const c : D3 = {name:"lee", age:23};   //Error 큰 타입에서 작은 타입으
 const obj1 = {name:'ju', age:45, married:false};
 const e :C3 = obj1;
 
-const e1:C3={name:'ju', age:45, married:false};  //Error 잉여속성검사
+//const e1:C3={name:'ju', age:45, married:false};  //Error 잉여속성검사
 
 
 
@@ -59,7 +59,7 @@ interface Person{
     last:number;
 }
 
-const p : Person = {first:'Jane', last:'Jacobs'};
-const first: Person['last'] = p['last'];
+//const p : Person = {first:'Jane', last:'Jacobs'};
+//const first: Person['last'] = p['last'];
 
 

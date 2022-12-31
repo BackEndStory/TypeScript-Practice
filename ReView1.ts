@@ -72,6 +72,10 @@ function jenelic1<T extends string>(x:T,y:T):T{ return x};
 function jenelic2<T extends string, K extends number>(x:T,y:K):T{ return x};
 
 
+
+
+
+
  
 
 

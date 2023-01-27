@@ -57,4 +57,38 @@ const tests: Expression4[] = [
     ['rgb',1,2,3],
 ]
 
+/* 37. 공식 명칭에는 상표를 붙이기 */
+
+type AbsolutePath = string & {_brand: 'abs'};
+function listAbsolutePath(path:AbsolutePath){};
+function isAbsolutePath(path:string): path is AbsolutePath{
+    return path.startsWith('/');
+};
+
+function f(path:string){
+    if(isAbsolutePath(path)){
+        listAbsolutePath(path);
+    }
+    listAbsolutePath(path);
+}
+f('/user/dm');
+
+
+interface Vector2D{
+    _brand: '2d';
+    x:number;
+    y:number;
+}
+
+function vex2D(x:number, y:number):Vector2D{
+    return {x,y,_brand:'2d'};
+}
+function calculateNorm(p:Vector2D){
+    return Math.sqrt(p.x * p.x + p.y * p.y);
+}
+calculateNorm(vex2D(3,4));
+const vex3D = {x:3,y:4,z:1};
+//calculateNorm(vex3D);
+
+
 

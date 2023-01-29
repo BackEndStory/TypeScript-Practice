@@ -69,7 +69,7 @@ function f(path:string){
     if(isAbsolutePath(path)){
         listAbsolutePath(path);
     }
-    listAbsolutePath(path);
+   // listAbsolutePath(path);
 }
 f('/user/dm');
 

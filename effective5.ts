@@ -1,6 +1,8 @@
 
 /* 38.any타입은 가능한 한 좁은 범위에서만 사용하기 */
 
+import { ObjectLiteralElementLike } from "typescript";
+
 
 interface Foo{ foo:string;}
 interface Bar{ bar:string;}
@@ -107,5 +109,46 @@ function cacheLast<T extends Function>(fn:T):T{
         return lastResult;
     } as unknown as T;
 }
+
+/* 41.any의 진화 이해하기 */
+
+function range1(start:number, limit:number){
+    const out = [];
+    // if(start === limit){
+    //     return out;
+    // }
+    
+    for(let i = start; i<limit ; i++){
+          out.push(i);
+    }
+    return out;                     // number 값이 들어가며, any => number 배열로 바뀜
+}
+
+function range2(start:number, limit:number){
+   //const out = [];              Error
+
+  range1(start, limit).forEach(i => {
+  //  out.push(i*i);
+  })
+   // return out;                  Error
+}
+
+
+let val = null;                    // any => number => number | null
+try{
+    val = 12;
+    val
+}catch(e){
+    console.warn('alas!');
+}
+val
+
+let val1 : any;            // any로 선언 시 쭉 타입은 any로 설정
+val1 = 'hello';
+val1
+val1 = 12;
+val1
+
+
 
 

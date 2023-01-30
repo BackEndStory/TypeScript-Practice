@@ -14,7 +14,7 @@ type Language = 'JAVASCRIPT' | 'TYPESCRIPT' | 'PYTHON';
 function setLanguage(language: Language){};
 
 let language = 'JAVASCRIPT';
-setLanguage(language);  //Error type is string
+//setLanguage(language);  //Error type is string
 
 // =>>  solution
 let language1 : Language = 'JAVASCRIPT';
@@ -27,7 +27,7 @@ setLanguage(language2);
 function pan( where: readonly [number,number]){};
 
 const loc = [10,20];
-pan(loc);  //Error
+//pan(loc);  //Error
 
 // ==> solution
 const loc1 : [number,number] = [10,20];
@@ -47,7 +47,7 @@ const ts = {
     language:'PYTHON',
     organization:'Micro'
 };
-complain(ts); //Error
+//complain(ts); //Error
 
 // ==> soluction
 const ts1 = { 

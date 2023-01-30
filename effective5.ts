@@ -79,3 +79,33 @@ haTwelveLetterKey({'a':23,'b':'we'});
 type Fn0 = () => any;                 // 매개변수 없이 호출 가능한 모든 함수
 type Fn1 = (arg:any) => any;          // 매개변수 1개
 type Fn2 = (...args:any[]) => any;    // 모든 개수의 매개변수
+
+
+/* 40.함수 안으로 타입 단언문 감추기 */
+
+//declare function cacheLast<T extends Function>(fn:T):T;
+//function shallowEqual<T extends object>(a:T,b:T):boolean;
+
+function shallowEqual<T extends object>(a:T,b:T):boolean{
+    for(const [k,aVal] of Object.entries(a)){
+        if(!(k in b) || aVal !== (b as any)[k]){
+            return false;
+        }
+    }
+    return Object.keys(a).length === Object.keys(b).length;
+}
+shallowEqual({'a':23},{'b':34});
+
+function cacheLast<T extends Function>(fn:T):T{
+    let lastArgs:any[]|null = null;
+    let lastResult:any;
+    return function(...args:any[]){
+        if(!lastArgs || !shallowEqual(lastArgs,args)){
+            lastResult = fn(...args);
+            lastArgs = args;
+        }
+        return lastResult;
+    } as unknown as T;
+}
+
+

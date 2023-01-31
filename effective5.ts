@@ -149,6 +149,50 @@ val1
 val1 = 12;
 val1
 
+/* 42.모르는 타입의 값에는 any대신 unknown을 사용하기 */
+
+function parseYAML(yaml:string):any{};
+
+interface Book{
+    name:string;
+    author:string;
+}
+
+const book1 = parseYAML(`
+                name:Wuthering Heights 
+                author:Emily Bronte
+                `);
+alert(book1.title);
+book1('read');
+
+function safePaseYAML(yaml:string):unknown{
+    return yaml;
+}
+
+const book2 = safePaseYAML(`name:Wuthering Heights author:Emily Bronte`);
+//alert(book2.title);     Error 
+//book2('read');          Error
+
+interface Feature{
+    id?:number;
+    properties:unknown;                   //타입 미확정 시
+}
+
+function isBook(val:unknown): val is Book{
+   return(
+     typeof(val) === 'object' && val !== null && 'name' in val && 'author' in val 
+   );
+}
+
+function processValue(val: unknown){
+    if(isBook(val)){
+        val;
+    }
+}
+
+processValue({name:'Lee',author:'LOL'});
+
+
 
 
 

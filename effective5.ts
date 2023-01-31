@@ -194,5 +194,23 @@ processValue({name:'Lee',author:'LOL'});
 
 
 
+/* 43.몽키패치보다는 안전한 타입을 사용하기 */
+
+// interface Document{                          // Document에서 확장하기
+//      monkey : string;
+//  }
+
+
+
+interface Monkey extends Document{              // 상속받아 확장하기
+    monkey: string;
+}
+
+//document.monkey  = 'Harmin';
+(document as any).monkey = 'Tarmin';           // 속성 강제 변환 (위험)
+(document as  Monkey).monkey = 'Yarmin';
+
+
+
 
 

@@ -1,5 +1,8 @@
 
+
+  
   declare global {
+    
     interface Error {
         code?: number;
         status?:string;
@@ -11,6 +14,6 @@
       }
     }
   }
-
+  //declare module 'my-module';
   export {}
   

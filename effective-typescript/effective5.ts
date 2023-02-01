@@ -1,7 +1,7 @@
 
 /* 38.any타입은 가능한 한 좁은 범위에서만 사용하기 */
 
-import { ObjectLiteralElementLike } from "typescript";
+import { ObjectLiteralElementLike, updateCommaList } from "typescript";
 
 
 interface Foo{ foo:string;}
@@ -210,6 +210,34 @@ interface Monkey extends Document{              // 상속받아 확장하기
 (document as any).monkey = 'Tarmin';           // 속성 강제 변환 (위험)
 (document as  Monkey).monkey = 'Yarmin';
 
+
+
+/* 44.타입 커버리지를 추적하여 타입 안전성 유지하기 */
+
+// npx type-coverage   any추적하기 ex) 98%가 any타입이 아님
+// npx type-coverage --detail  any추적 및 any타입 위치 추적하기 
+
+type ColumnInfo = object;
+const utils = {
+    buildColumnInfo(a:unknown, b:string): ColumnInfo{
+        return {}
+    }
+};
+declare let appState : {
+    dataSchema: unknown
+};
+function getColumnInfo(name:string){
+    return utils.buildColumnInfo(appState.dataSchema,name);
+}
+
+
+//import { someMethod, someSymbol} from 'my-module';
+
+const pt1 = {
+    x:1,
+    y:2
+};
+//const pt2 = someMethod(pt1,someSymbol);
 
 
 

@@ -1,6 +1,4 @@
 
-
-  
   declare global {
     
     interface Error {

@@ -241,4 +241,9 @@ const pt1 = {
 
 
 
+/* 47.공개 API에 등장하는 모든타입을 익스포트하기 */
 
+import getGift from "./effective6";
+
+type MySanta = ReturnType<typeof getGift>;
+type MyName = Parameters<typeof getGift>[0];

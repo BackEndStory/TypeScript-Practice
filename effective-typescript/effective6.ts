@@ -54,3 +54,48 @@ interface Measurement{
     /** 언제 측정되었나? epoch에서부터 초 단위로 */
     time:number;
 }
+
+/* 49.콜백에서 this에 대한 타입 제공하기 */
+
+class C{
+    vals = [1,2,3];
+    logSquares(){
+        for(const val of this.vals){
+            console.log(val*val);
+        } 
+    }
+}
+
+// const c = new C();
+// c.logSquares();
+
+const c = new C();
+const CC = c.logSquares;
+CC.call(c);
+
+declare function makeButton(props:{text:string,onCLick:()=>void}):void;
+
+// class ResetButton {
+//     // constructor(){
+//     //     this.onClick = this.onClick.bind(this);
+//     // }
+//     render(){
+//         return makeButton({text:'Reset', onCLick:this.onClick});
+//     }
+//     onClick = () => {
+//         alert(`Reset ${this}`);
+//     }
+// }
+
+class ResetButton {
+    constructor(){
+        var _this = this;
+        // this.onClick = function() {
+        //     alert('Reset'+ _this);
+        // };
+    }
+    // render(){
+    //     return makeButton({text:'Reset', onCLick:this.onClick});
+    // }
+    
+}

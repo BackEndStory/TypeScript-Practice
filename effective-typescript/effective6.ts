@@ -123,4 +123,27 @@ class ResetButton {
 // }
 
 
+/* 52. 테스팅 타입의 함정의 주의하기 */
+function assertType<T>(x:T){}
+const double = (x:number) => 2*x;
+let p : Parameters<typeof double> = null!;
+assertType<[number,number]>(p);
+let r : ReturnType<typeof double> = null!;
+assertType<number>(r);
 
+
+declare function map<U,V>(
+    array: U[],
+    fn:(this:U[], u:U, i:number, array:U[]) => V
+): V[];
+
+const beates = ['a','b','c','d'];
+map(beates, function(
+    this ,         // $ExpectType string[]
+    name,   // $ExpectType string
+    i,      // $ExpectType number
+    array      // $ExpectType string[]
+){ 
+    return name.length;
+}
+);         // $ExpectType number[]

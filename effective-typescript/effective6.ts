@@ -121,13 +121,17 @@ class ResetButton {
 // function f(x:number|string){
 //     return double(x);
 // }
-
+function double2<T extends ([T] extends [string] ? string : number)>( x: T): [T] extends [string] ? string:number{
+    return x;
+}
+const a = double2('hi');
+const b = double2(123);
 
 /* 52. 테스팅 타입의 함정의 주의하기 */
 function assertType<T>(x:T){}
 const double = (x:number) => 2*x;
 let p : Parameters<typeof double> = null!;
-assertType<[number,number]>(p);
+//assertType<[number,number]>(p);
 let r : ReturnType<typeof double> = null!;
 assertType<number>(r);
 
@@ -146,4 +150,11 @@ map(beates, function(
 ){ 
     return name.length;
 }
-);         // $ExpectType number[]
+ );         // $ExpectType number[]
+
+
+
+
+
+
+

@@ -99,3 +99,28 @@ class ResetButton {
     // }
     
 }
+
+/* 50.오버로딩 타입보다는 조건부 타입을 사용하기 */
+
+//function double(x:number | string) : number | string;
+
+/** 제네릭 사용하여 구체적 타입 만들기 */
+//function double<T extends string | number>(x:T):T;
+
+// function double(x:number):number;
+// function double(x:string):string;
+
+/** 삼항 연산자와 제네릭을 사용하여 가장 정교하게 함수타입 만들기 */
+//function double<T extends string | number>( x: T): T extends string ? string:number{ return x;};
+//function double(x:any){ return x;}
+
+// const num = double(12);
+// const str = double('x');
+
+
+// function f(x:number|string){
+//     return double(x);
+// }
+
+
+

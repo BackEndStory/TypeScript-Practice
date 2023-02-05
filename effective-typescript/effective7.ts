@@ -1,5 +1,5 @@
 
-/* 54.타입스크립트 기능보다는 ECMAScript기능을 사용하기 */
+/* 53.타입스크립트 기능보다는 ECMAScript기능을 사용하기 */
 
 enum Flavor{
     VANILLA = 0,
@@ -58,6 +58,7 @@ function logged(target:any,name:string,descriptor:PropertyDescriptor){
     return fn.apply(this,arguments);
   };
 }
-
-
 console.log(new Greeter('Dave').greet());
+
+
+

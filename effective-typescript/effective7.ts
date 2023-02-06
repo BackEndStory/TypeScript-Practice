@@ -99,3 +99,39 @@ function foo2(abc:ABC){                                        // 방법2 Object
 
 const x23 ={ a:'a', b:'b', c:2, d:undefined};
 foo1(x23);
+
+
+
+
+function hash(text:string):number{ return 23;};
+
+class PasswordChecker1{
+  checkPassword:(password:string) => boolean;
+  constructor(passwordHash:number){
+    this.checkPassword = (password:string)=>{
+      return hash(password) === passwordHash;
+    }
+  }
+}
+
+
+/* 56.정보를 감추는 목적으로 private 사용하지 않기 */
+const checker1 = new PasswordChecker1(hash('s3cret'));
+console.log(checker1);
+console.log(checker1.checkPassword('s3cret'));
+
+
+class PasswordChecker2{
+  #passwordHash : number;
+
+  constructor(passwordHash:number){
+    this.#passwordHash = passwordHash 
+  }
+  checkPassword(password:string){
+    return hash(password) === this.#passwordHash;
+  }
+}
+
+const checker2 = new PasswordChecker1(hash('s3cret'));
+checker2.checkPassword('s3c');
+checker2.checkPassword('s3cret');

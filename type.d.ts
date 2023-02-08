@@ -11,6 +11,15 @@
         message:'OK'
       }
     }
+
+   interface UserData{
+    firstName:string;
+    lastName:string;
+   }
+
+   declare let user:UserData;
+
+
   }
   //declare module 'my-module';
   export {}

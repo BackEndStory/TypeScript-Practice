@@ -11,15 +11,15 @@
 //console.log(b.name4);
 
 
-function Person4(first, last){
-    this.first = first;
-    this.last = last;
-}
-Person4.prototype.getName = function(){
-    return this.first +' ' +this.last;
-}
-const marie = new Person4('Marie','Curie');
-const personName = marie.getName();
+// function Person4(first, last){
+//     this.first = first;
+//     this.last = last;
+// }
+// Person4.prototype.getName = function(){
+//     return this.first +' ' +this.last;
+// }
+// const marie = new Person4('Marie','Curie');
+// const personName = marie.getName();
 
 
 // => 프로토타입 클래스로
@@ -57,3 +57,15 @@ function countWordsMap(text:string){
     }
     return counts;
 }
+
+/* 59.타입스크립트 도입 전에 @ts-check와 JSDoc으로 시험해보기 */
+
+// @ts-check
+const person = {first:'Grace', last:'Hopper'};
+//2 * person.first;   //ts-check가 오류를 찾아줌 
+
+
+// @ts-check
+console.log(user.firstName);
+
+

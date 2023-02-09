@@ -35,6 +35,7 @@ function loadData(data){
 
 class Greeting2{
   
+    // @ts-ignore
     constructor(name){
         this.greeting = 'Hello';
         this.name = name;
@@ -45,8 +46,7 @@ class Greeting2{
 }
 
 
-const state2 = {};
-state2.name = 'New York';
-state2.capitial = 'Albany';
+
+
 
 

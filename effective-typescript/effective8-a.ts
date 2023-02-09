@@ -75,7 +75,7 @@ console.log(user.firstName);
 class Greeting1{
     greeting: string;
     name: string;
-    constructor(name){
+    constructor(name: string){
         this.greeting = 'Hello';
         this.name = name;
     }
@@ -106,3 +106,21 @@ function double12(num:number){
     return 2*num;
 }
 // double12('we'); Error
+
+
+
+
+
+/* 62.noImplicitAny 설정하기 */
+class Chart{
+    indices:number[][];
+    constructor(indices:number[][]){
+        this.indices = indices;
+    }
+    getRanges(){
+        for(const r of this.indices){
+            const low = r[0];
+            const high = r[1];
+        }
+    }
+}

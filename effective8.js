@@ -30,3 +30,23 @@ function loadData(data){
     });
 }
 
+
+/* 61.의존성 관계에 따라 모듈 단위로 전환하기 */
+
+class Greeting2{
+  
+    constructor(name){
+        this.greeting = 'Hello';
+        this.name = name;
+    }
+    greet(){
+        return this.greet + '' +this.name;
+    }
+}
+
+
+const state2 = {};
+state2.name = 'New York';
+state2.capitial = 'Albany';
+
+

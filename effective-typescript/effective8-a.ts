@@ -69,3 +69,40 @@ const person = {first:'Grace', last:'Hopper'};
 console.log(user.firstName);
 
 
+
+/* 61.의존성 관계에 따라 모듈 단위로 전환하기 */
+
+class Greeting1{
+    greeting: string;
+    name: string;
+    constructor(name){
+        this.greeting = 'Hello';
+        this.name = name;
+    }
+    greet(){
+        return this.greet + '' +this.name;
+    }
+}
+
+
+// const state1 = {
+//     name:'New York',
+//     capital:'Albany'
+// };
+
+interface State1{
+    name:string;
+    capital:string;
+}
+
+const state1 = {} as State1;
+state1.name = 'New York';
+state1.capital = 'Albany';
+
+
+
+
+function double12(num:number){
+    return 2*num;
+}
+// double12('we'); Error
